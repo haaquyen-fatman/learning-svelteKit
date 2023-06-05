@@ -1,7 +1,7 @@
 <script>
-	import Checkbox from '$lib/Checkbox/Checkbox.svelte';
-	import TextField from '$lib/Inputs/TextField.svelte';
-	import SelectMenu from '$lib/SelectMenu/SelectMenu.svelte';
+	import Checkbox from '$lib/Form/Checkbox.svelte';
+	import TextField from '$lib/Form/TextField.svelte';
+	import SelectMenu from '$lib/Form/SelectMenu.svelte';
 
 	let fruits = [
 		{ id: 1, label: 'Apple', price: 35 },
@@ -13,6 +13,8 @@
 
 <form>
 	<TextField label="Outlined" helperText="demo input" />
+	<TextField label="Outlined" />
+
 	<SelectMenu required list={fruits} label="Fruits" />
 	<Checkbox label="Does it work?" />
 	<Checkbox label="Does it work?" disabled />
