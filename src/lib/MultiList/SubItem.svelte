@@ -1,9 +1,9 @@
 <script lang="ts">
-	import List, { Item, Text } from '@smui/list';
+	import { Item, Text } from '@smui/list';
 
 	export let name: string;
 </script>
 
-<Item>
+<Item on:SMUI:action={() => console.log(name)}>
 	<Text>{name}</Text>
 </Item>

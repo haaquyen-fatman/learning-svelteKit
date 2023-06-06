@@ -9,9 +9,9 @@
 	export let withLeadingIcon: boolean = false;
 	export let icon: string | undefined = undefined;
 	export let invalid: boolean = false;
+	export let helperText: string | undefined = undefined;
 
-	let value = '';
-	let valueInvalid = '';
+	export let value = '';
 </script>
 
 <div>
@@ -36,5 +36,11 @@
 				{item.label}</Option
 			>
 		{/each}
+
+		<svelte:fragment slot="helperText">
+			{#if helperText}
+				<span>{helperText}</span>
+			{/if}
+		</svelte:fragment>
 	</Select>
 </div>

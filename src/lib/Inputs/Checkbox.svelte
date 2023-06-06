@@ -4,7 +4,7 @@
 
 	export let label: string = 'Checkbox';
 	export let disabled: boolean = false;
-	let checked = false;
+	export let checked: boolean = false;
 </script>
 
 <FormField>

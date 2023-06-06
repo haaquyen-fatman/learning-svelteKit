@@ -1,37 +1,41 @@
 <script lang="ts">
 	import Textfield from '@smui/textfield';
 	import HelperText from '@smui/textfield/helper-text';
-	import Icon from '@smui/textfield/icon';
 
 	export let variant: 'standard' | 'filled' | 'outlined' | undefined = undefined;
-	export let label: string = '';
+	export let label: string | undefined = undefined;
+	export let required: boolean = false;
 	export let helperText: string = '';
 	export let invalid: boolean = false;
 	export let prefix: string | undefined = undefined;
 	export let suffix: string | undefined = undefined;
-	export let input$pattern: string | undefined = undefined;
 	export let persistent: boolean = false;
-
-	let value = '';
-	$: disabled = !value || invalid;
+	export let disabled: boolean = false;
+	export let textarea: boolean = false;
+	export let value: string | number | null | undefined;
+	export let type: string = 'text';
 </script>
 
 <div>
 	<Textfield
-		{variant}
 		bind:value
+		{type}
+		{variant}
 		{label}
-		withTrailingIcon={!disabled}
+		{required}
+		{disabled}
 		{invalid}
 		{prefix}
 		{suffix}
-		{input$pattern}
+		{textarea}
 	>
-		<svelte:fragment slot="trailingIcon">
-			{#if !disabled}
-				<Icon class="material-symbols-outlined" role="button">send</Icon>
-			{/if}
+		<svelte:fragment slot="leadingIcon">
+			<slot name="leadingIcon" />
 		</svelte:fragment>
+		<svelte:fragment slot="trailingIcon">
+			<slot name="trailingIcon" />
+		</svelte:fragment>
+
 		<HelperText {persistent} slot="helper">{helperText}</HelperText>
 	</Textfield>
 </div>

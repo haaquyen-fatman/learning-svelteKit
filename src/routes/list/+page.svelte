@@ -1,6 +1,13 @@
-<script>
+<script lang="ts">
 	import MultiList from '$lib/MultiList/MultiList.svelte';
-	let files = [
+	interface File {
+		name: string;
+		files?: File[];
+	}
+
+	type FileType = File[];
+
+	let files: FileType = [
 		{ name: 'rampage.gif' },
 		{
 			name: 'Important work stuff',

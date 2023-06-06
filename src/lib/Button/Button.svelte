@@ -7,12 +7,26 @@
 	export let touch: boolean = false;
 	export let href: string | undefined = undefined;
 	export let target: string | undefined = undefined;
+	export let type: string | undefined = undefined;
+	export let defaultAction: boolean = false;
+	export let action: string | undefined = undefined;
 
 	let className: string = '';
 	export { className as class };
 </script>
 
-<Button class={className} {disabled} {ripple} {touch} {href} {target}>
+<Button
+	class={className}
+	{disabled}
+	{ripple}
+	{touch}
+	{href}
+	{target}
+	{type}
+	{defaultAction}
+	{action}
+	on:click
+>
 	{#if label}
 		<Label>{label}</Label>
 	{:else}
